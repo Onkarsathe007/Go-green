@@ -31,18 +31,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="container">
 			<div class="w3_agileits_banner_main_grid">
 				<div class="w3_agile_logo">
-					<h1><a href="index.html"><span>G</span> o Green<i>Grow healthy products</i></a></h1>
+					<h1><a href="index.php"><span>G</span> o Green<i>Grow healthy products</i></a></h1>
 				</div>
 				<div class="agile_social_icons_banner">
 					<ul class="agileits_social_list">
-					<li>Welcome <?php
-						session_start();
-						echo $_SESSION['user_id']; 
-						?> </li>
+
 						<li><a href="#" class="w3_agile_facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
 						<li><a href="#" class="agile_twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
 						<li><a href="#" class="w3_agile_dribble"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
 						<li><a href="#" class="w3_agile_vimeo"><i class="fa fa-vimeo" aria-hidden="true"></i></a></li>
+						
 					</ul>
 				</div>
 				<div class="agileits_w3layouts_menu">
@@ -55,12 +53,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="shy-menu-panel">
 							<nav class="menu menu--horatio link-effect-8" id="link-effect-8">
 								<ul class="w3layouts_menu__list">
-									<li class="active"><a href="index.html">Home</a></li>
+									<li class="active"><a href="index.php">Home</a></li>
 									<li><a href="about.html">About Us</a></li> 
 									<li><a href="services.html">Services</a></li>
 									<li><a href="gallery.html">Gallery</a></li> 
 									<li><a href="contact.html">Contact Us</a></li>
+									<li><a href="login.php">Login</a></li>
                                     <li><a href="buy.html">Buy</a></li>
+									<li style="list-style: none;"><a href="logout.php" style="color: inherit; text-decoration: none;" onmouseover="this.style.color='red'" onmouseout="this.style.color='inherit'">Log out</a></li>
 								</ul>
 							</nav>
 						</div>
@@ -71,7 +71,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<div class="w3_banner_info">
 				<div class="w3_banner_info_grid">
-					<h3 class="test">#Our Plant Nursery</h3>
+					<h3 class="test">#					<?php
+						session_start();
+						if(isset($_SESSION['user_id'])) {
+							echo '<li style="font-weight: 400; color: #ffffff; font-size: 24px;">Welcome ' . htmlspecialchars($_SESSION['user_id']) . '!</li>';
+						}
+					?></h3>
 					<p>Aenean congue vitae mauris sed tristique. Mauris quis nulla at sapien blandit 
 						sollicitudin. Nunc tortor lorem, viverra sed diam ut, blandit efficitur leo.</p>
 					<ul>
@@ -378,7 +383,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="w3agile_footer_grids">
 				<div class="col-md-3 agileinfo_footer_grid">
 					<div class="agileits_w3layouts_footer_logo">
-						<h2><a href="index.html"><span>G</span> o Green<i>Grow healthy products</i></a></h2>
+						<h2><a href="index.php"><span>G</span> o Green<i>Grow healthy products</i></a></h2>
 					</div>
 				</div>
 				<div class="col-md-4 agileinfo_footer_grid">
@@ -395,7 +400,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="col-md-2 agileinfo_footer_grid agileinfo_footer_grid1">
 					<h3>Navigation</h3>
 					<ul class="w3layouts_footer_nav">
-						<li><a href="index.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Home</a></li>
+						<li><a href="index.php"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Home</a></li>
 						<li><a href="icons.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Web Icons</a></li>
 						<li><a href="typography.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Typography</a></li>
 						<li><a href="contact.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Contact Us</a></li>

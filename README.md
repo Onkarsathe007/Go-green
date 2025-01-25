@@ -34,7 +34,4 @@ The management of seedlings can be done in a better way with minimum care, cost 
  Youtube videos     :    https://www.youtube.com/
   ```
  ### Live Demo of webpage
- ****
-   [Preview of the project available here!!!](https://akshayrrao.github.io/Nursery-management-system-master/)
-
 Thank you....
