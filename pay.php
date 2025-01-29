@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <title>Germinate an Agriculture Category Flat Bootstrap Responsive Website Template | Gallery :</title>
@@ -24,7 +25,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="//fonts.googleapis.com/css?family=Bree+Serif&amp;subset=latin-ext" rel="stylesheet">
 <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
 </head>
-	
+<?php
+// Now you can access $_SESSION
+session_start();
+?>
 <body>
 <!-- banner -->
 	<div class="banner1">
@@ -57,7 +61,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<li class="active"><a href="gallery.html">Gallery</a></li> 
 									<li><a href="contact.html">Contact Us</a></li>
                                     <li><a href="login.php">Login</a></li>
-                                    <li><a href="buy.html">Buy</a></li>
+                                    <li><a href="buy.php">Buy</a></li>
 									<li style="list-style: none;"><a href="logout.php" style="color: inherit; text-decoration: none;" onmouseover="this.style.color='red'" onmouseout="this.style.color='inherit'">Log out</a></li>
 								</ul>
 							</nav>
@@ -75,7 +79,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					Germinate
+					
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
 				</div>
 				<section>
@@ -115,6 +119,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="welcome">
 		<div class="container">
 			<h3 class="agileits_w3layouts_head">do  <span>Payment</span></h3>
+			Germinate
+
+
 			<div class="w3_agile_image">
 				<img src="images/1.png" alt=" " class="img-responsive" />
 			</div>
@@ -196,7 +203,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
               </label>
             </div>
           </div>
-     
+     <?php
+	 echo "<h2>Welcome ".$_SESSION['user_id']."</h2>";
+	 ?>
           <!-- Submit -->
           <div class="control-group">
             <div class="controls">

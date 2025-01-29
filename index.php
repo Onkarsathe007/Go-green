@@ -59,7 +59,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<li><a href="gallery.html">Gallery</a></li> 
 									<li><a href="contact.html">Contact Us</a></li>
 									<li><a href="login.php">Login</a></li>
-                                    <li><a href="buy.html">Buy</a></li>
+                                    <li><a href="buy.php">Buy</a></li>
 									<li style="list-style: none;"><a href="logout.php" style="color: inherit; text-decoration: none;" onmouseover="this.style.color='red'" onmouseout="this.style.color='inherit'">Log out</a></li>
 								</ul>
 							</nav>
@@ -174,7 +174,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- welcome -->
 	<div class="welcome">
 		<div class="container">
-			<h3 class="agileits_w3layouts_head">Welcome to our <span>Plantation</span></h3>
+			<h3 class="agileits_w3layouts_head">Welcome to our <span>Plantation</span> 
+			<?php 
+				if(isset($_SESSION['user_id'])) {
+					echo htmlspecialchars($_SESSION['user_id']);
+				}
+			?>!</h3>
 			<div class="w3_agile_image">
 				<img src="images/1.png" alt=" " class="img-responsive" />
 			</div>
@@ -369,8 +374,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<p class="agile_para agileits_para">Morbi viverra lacus commodo felis semper, eu iaculis lectus nulla at sapien blandit sollicitudin.</p>
 			<div class="w3ls_news_grids w3ls_newsletter_grids">
 				<form action="#" method="post">
-					<input name="Your Name" placeholder="Your Name" type="text" required="">
-					<input name="Your Email" placeholder="Your Email" type="email" required="">
+					<input name="Your Name" placeholder="Your Name" type="text" value="<?php 
+					if(isset($_SESSION['user_id'])) {
+						echo htmlspecialchars($_SESSION['user_id']);
+					}
+					?>" required="">
+
+					<input name="Your Email" placeholder="Your Email" type="email" required="" value="			<?php 
+					if(isset($_SESSION['user_id'])) {
+						echo htmlspecialchars($_SESSION['email']);
+					}
+					?>" required="true">	
 					<input type="submit" value="Subscribe">
 				</form>
 			</div>

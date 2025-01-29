@@ -68,9 +68,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<li><a href="services.html">Services</a></li>
 									<li class="active"><a href="gallery.html">Gallery</a></li> 
 									<li><a href="contact.html">Contact Us</a></li>
-                                    <li><a href="login.php">Login</a></li>
-                                    <li><a href="buy.html">Buy</a></li>
-									<li style="list-style: none;"><a href="logout.php" style="color: inherit; text-decoration: none;" onmouseover="this.style.color='red'" onmouseout="this.style.color='inherit'">Log out</a></li>
+                                    <li><a href="buy.php">Buy</a></li>
 								</ul>
 							</nav>
 						</div>
@@ -142,7 +140,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 
-            <main class="cd-main container margin-top-xxl">
+<main class="cd-main container margin-top-xxl">
   <div class="text-component text-center">
     <h1>Add to Cart </h1>
     <p class="flex flex-wrap flex-center flex-gap-xxs">
@@ -373,7 +371,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
     </p>
   </div>
-</main>
+</main> 
 
 <div class="cd-cart cd-cart--empty js-cd-cart">
 	<a href="#0" class="cd-cart__trigger text-replace">
@@ -398,15 +396,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 
 			<footer class="cd-cart__footer">
-				<a href="pay.html"  class="cd-cart__checkout">
-          <em>Checkout - ₹<span>0</span>
-            <svg class="icon icon--sm" viewBox="0 0 24 24"><g fill="none" stroke="currentColor"><line stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="3" y1="12" x2="21" y2="12"/><polyline stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="15,6 21,12 15,18 "/></g>
-            </svg>
-          </em>
-        </a>
+				<a href="pay.php" class="cd-cart__checkout">
+					<em>Checkout - ₹<span>0</span>
+						<svg class="icon icon--sm" viewBox="0 0 24 24"><g fill="none" stroke="currentColor"><line stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="3" y1="12" x2="21" y2="12"/><polyline stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="15,6 21,12 15,18 "/></g>
+						</svg>
+					</em>
+				</a>
 			</footer>
 		</div>
 	</div> <!-- .cd-cart__content -->
+</div>
 </div> <!-- cd-cart -->
 <script src="assets/js/util.js"></script> <!-- util functions included in the CodyHouse framework -->
 <script src="assets/js/main.js"></script> 
