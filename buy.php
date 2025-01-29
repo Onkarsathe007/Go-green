@@ -427,6 +427,73 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 	</div>
 <!-- //gallery -->
+<script>
+    let cart = [];
+
+    document.querySelectorAll(".cd-add-to-cart").forEach(button => {
+        button.addEventListener("click", function (event) {
+            event.preventDefault();
+
+            // Access the name from the h4 inside .info__card
+            let name = this.closest(".info__card").querySelector("h4").innerText;
+
+            // Access the price from the data-price attribute of the button
+            let price = parseFloat(this.getAttribute("data-price"));
+            
+            // Check if the item already exists in the cart
+            let existingItem = cart.find(item => item.name === name);
+            if (existingItem) {
+                existingItem.quantity += 1;  // Increment the quantity
+            } else {
+                cart.push({ name, price, quantity: 1 });  // Add new item to cart
+            }
+
+            updateCartUI();
+        });
+    });
+
+    function updateCartUI() {
+        let cartList = document.getElementById("cart-items");
+        let totalPrice = document.getElementById("total-price");
+        let hiddenInput = document.getElementById("cart-data");
+
+        cartList.innerHTML = "";  // Clear the cart items
+        let total = 0;
+
+        // Loop through the cart and display the items
+        cart.forEach(item => {
+            let li = document.createElement("li");
+            li.textContent = `${item.name} x${item.quantity} - ₹${item.price * item.quantity}`;
+            cartList.appendChild(li);
+            total += item.price * item.quantity;
+        });
+
+        totalPrice.textContent = total;  // Update the total price
+        hiddenInput.value = JSON.stringify(cart);  // Store the cart data in a hidden input field
+    }
+
+	// Assuming you have a "Buy" button
+	document.querySelector(".cd-cart__checkout").addEventListener("click", function () {
+    let cartData = JSON.stringify(cart);  // Convert the cart array to JSON
+    console.log(cartData);
+
+    fetch('store_cart.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',  // Content type as JSON
+        },
+        body: JSON.stringify({ cart: cartData })  // Send the cart data as JSON
+    })
+    .then(response => response.json())  // Handle the response from PHP
+    .then(data => {
+        // You can handle any response from PHP here, like success or failure message
+        alert(data.message);  // Example alert
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+});
+</script>
 	<script src="js/lsb.min.js"></script>
 	<script>
 	$(window).load(function() {
