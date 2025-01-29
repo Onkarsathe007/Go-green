@@ -31,19 +31,25 @@ CREATE TABLE IF NOT EXISTS admin (
 );
 
 -- Table for student orders
-CREATE TABLE IF NOT EXISTS orders (
-    order_id INT AUTO_INCREMENT PRIMARY KEY,
-    user_id INT NOT NULL,
-    product_name VARCHAR(255) NOT NULL,
-    quantity INT NOT NULL,
-    price DECIMAL(10, 2) NOT NULL,
-    total_amount DECIMAL(10, 2) NOT NULL,
-    payment_method ENUM('Cash on Delivery', 'Online Payment') NOT NULL,
-    order_status ENUM('Pending', 'Shipped', 'Delivered', 'Cancelled') DEFAULT 'Pending',
-    order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    delivery_address VARCHAR(255) NOT NULL,
-    FOREIGN KEY (user_id) REFERENCES users(user_id)
+CREATE TABLE orders (
+    order_id INT AUTO_INCREMENT PRIMARY KEY, -- Auto increment for the order ID
+    username VARCHAR(255) NOT NULL,
+    address TEXT NOT NULL,
+    payment_method ENUM('cash_on_delivery', 'credit_card', 'debit_card', 'paypal') DEFAULT 'cash_on_delivery',
+    order_status ENUM('pending', 'completed', 'shipped', 'cancelled') DEFAULT 'pending',
+    order_date DATE DEFAULT CURRENT_DATE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- Stores the time when the order was placed
+    items TEXT NOT NULL, -- A column to store the items in the order, could be a JSON or a serialized string
+    quantity INT NOT NULL, -- Quantity of the items ordered
+    price DECIMAL(10, 2) NOT NULL -- Price of the order, with 2 decimal places for cents
 );
+
+INSERT INTO orders (username, address, payment_method, order_status, order_date)
+VALUES 
+('John Doe', '123 Main St, Springfield', 'credit_card', 'pending', CURRENT_DATE),
+('Jane Smith', '456 Elm St, Springfield', 'cash_on_delivery', 'completed', CURRENT_DATE),
+('Alice Johnson', '789 Oak St, Springfield', 'paypal', 'shipped', CURRENT_DATE);
+
 
 -- Insert dummy data for users
 INSERT INTO users (first_name, last_name, email, password, phone, address, city, state, postal_code)
