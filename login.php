@@ -14,7 +14,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $user = mysqli_fetch_assoc($result);
         $_SESSION['user_id'] = $user['first_name'];
         $_SESSION['email'] = $user['email'];
-        header('Location: index.php'); // Redirect to home page
+        $_SESSION['login_success'] = true; // Set login success flag
+        header('Location: index.php'); // Redirect to the same page to show the alert
         exit();
     } else {
         $error = "Invalid email or password.";
@@ -26,8 +27,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./css/loginstyle.css">
     <title>Login</title>
+
 </head>
 <body>
     <div class="form-container">
@@ -40,5 +42,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <p>Don't have an account? <a href="signup.php">Sign up</a></p>
         </form>
     </div>
+    <script>
+        // Check if login was successful and show alert
+        <?php if (isset($_SESSION['login_success']) && $_SESSION['login_success']) { ?>
+            alert('Login successful!');
+            <?php unset($_SESSION['login_success']); // Unset the flag after showing the alert ?>
+        <?php } ?>
+    </script>
 </body>
 </html>

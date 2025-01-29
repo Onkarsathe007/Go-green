@@ -43,7 +43,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="container">
 			<div class="w3_agileits_banner_main_grid">
 				<div class="w3_agile_logo">
-					<h1><a href="index.html"><span>G</span>oGreen<i>Grow healthy products</i></a></h1>
+					<h1><a href="index.php"><span>G</span>oGreen<i>Grow healthy products</i></a></h1>
 				</div>
 				<div class="agile_social_icons_banner">
 					<ul class="agileits_social_list">
@@ -63,12 +63,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="shy-menu-panel">
 							<nav class="menu menu--horatio link-effect-8" id="link-effect-8">
 								<ul class="w3layouts_menu__list">
-									<li><a href="index.html">Home</a></li>
+									<li><a href="index.php">Home</a></li>
 									<li><a href="about.html">About Us</a></li> 
 									<li><a href="services.html">Services</a></li>
 									<li class="active"><a href="gallery.html">Gallery</a></li> 
 									<li><a href="contact.html">Contact Us</a></li>
-                                    <li><a href="buy.html">Buy</a></li>
+                                    <li><a href="buy.php">Buy</a></li>
 								</ul>
 							</nav>
 						</div>
@@ -110,7 +110,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="container">
 			<div class="w3layouts_breadcrumbs_left">
 				<ul>
-					<li><i class="fa fa-home" aria-hidden="true"></i><a href="index.html">Home</a><span>/</span></li>
+					<li><i class="fa fa-home" aria-hidden="true"></i><a href="index.php">Home</a><span>/</span></li>
 					<li><i class="fa fa-picture-o" aria-hidden="true"></i>Buy</li>
 				</ul>
 			</div>
@@ -140,7 +140,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 
-            <main class="cd-main container margin-top-xxl">
+<main class="cd-main container margin-top-xxl">
   <div class="text-component text-center">
     <h1>Add to Cart </h1>
     <p class="flex flex-wrap flex-center flex-gap-xxs">
@@ -371,7 +371,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
     </p>
   </div>
-</main>
+</main> 
 
 <div class="cd-cart cd-cart--empty js-cd-cart">
 	<a href="#0" class="cd-cart__trigger text-replace">
@@ -396,15 +396,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 
 			<footer class="cd-cart__footer">
-				<a href="pay.html"  class="cd-cart__checkout">
-          <em>Checkout - ₹<span>0</span>
-            <svg class="icon icon--sm" viewBox="0 0 24 24"><g fill="none" stroke="currentColor"><line stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="3" y1="12" x2="21" y2="12"/><polyline stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="15,6 21,12 15,18 "/></g>
-            </svg>
-          </em>
-        </a>
+				<a href="pay.php" class="cd-cart__checkout">
+					<em>Checkout - ₹<span>0</span>
+						<svg class="icon icon--sm" viewBox="0 0 24 24"><g fill="none" stroke="currentColor"><line stroke-width="2" stroke-linecap="round" stroke-linejoin="round" x1="3" y1="12" x2="21" y2="12"/><polyline stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="15,6 21,12 15,18 "/></g>
+						</svg>
+					</em>
+				</a>
 			</footer>
 		</div>
 	</div> <!-- .cd-cart__content -->
+</div>
 </div> <!-- cd-cart -->
 <script src="assets/js/util.js"></script> <!-- util functions included in the CodyHouse framework -->
 <script src="assets/js/main.js"></script> 
@@ -426,6 +427,73 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 	</div>
 <!-- //gallery -->
+<script>
+    let cart = [];
+
+    document.querySelectorAll(".cd-add-to-cart").forEach(button => {
+        button.addEventListener("click", function (event) {
+            event.preventDefault();
+
+            // Access the name from the h4 inside .info__card
+            let name = this.closest(".info__card").querySelector("h4").innerText;
+
+            // Access the price from the data-price attribute of the button
+            let price = parseFloat(this.getAttribute("data-price"));
+            
+            // Check if the item already exists in the cart
+            let existingItem = cart.find(item => item.name === name);
+            if (existingItem) {
+                existingItem.quantity += 1;  // Increment the quantity
+            } else {
+                cart.push({ name, price, quantity: 1 });  // Add new item to cart
+            }
+
+            updateCartUI();
+        });
+    });
+
+    function updateCartUI() {
+        let cartList = document.getElementById("cart-items");
+        let totalPrice = document.getElementById("total-price");
+        let hiddenInput = document.getElementById("cart-data");
+
+        cartList.innerHTML = "";  // Clear the cart items
+        let total = 0;
+
+        // Loop through the cart and display the items
+        cart.forEach(item => {
+            let li = document.createElement("li");
+            li.textContent = `${item.name} x${item.quantity} - ₹${item.price * item.quantity}`;
+            cartList.appendChild(li);
+            total += item.price * item.quantity;
+        });
+
+        totalPrice.textContent = total;  // Update the total price
+        hiddenInput.value = JSON.stringify(cart);  // Store the cart data in a hidden input field
+    }
+
+	// Assuming you have a "Buy" button
+	document.querySelector(".cd-cart__checkout").addEventListener("click", function () {
+    let cartData = JSON.stringify(cart);  // Convert the cart array to JSON
+    console.log(cartData);
+
+    fetch('store_cart.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',  // Content type as JSON
+        },
+        body: JSON.stringify({ cart: cartData })  // Send the cart data as JSON
+    })
+    .then(response => response.json())  // Handle the response from PHP
+    .then(data => {
+        // You can handle any response from PHP here, like success or failure message
+        alert(data.message);  // Example alert
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+});
+</script>
 	<script src="js/lsb.min.js"></script>
 	<script>
 	$(window).load(function() {
@@ -438,7 +506,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="w3agile_footer_grids">
 				<div class="col-md-3 agileinfo_footer_grid">
 					<div class="agileits_w3layouts_footer_logo">
-						<h2><a href="index.html"><span>G</span>oGreen<i>Grow healthy products</i></a></h2>
+						<h2><a href="index.php"><span>G</span>oGreen<i>Grow healthy products</i></a></h2>
 					</div>
 				</div>
 				<div class="col-md-4 agileinfo_footer_grid">
@@ -455,7 +523,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="col-md-2 agileinfo_footer_grid agileinfo_footer_grid1">
 					<h3>Navigation</h3>
 					<ul class="w3layouts_footer_nav">
-						<li><a href="index.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Home</a></li>
+						<li><a href="index.php"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Home</a></li>
 						<li><a href="icons.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Web Icons</a></li>
 						<li><a href="typography.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Typography</a></li>
 						<li><a href="contact.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Contact Us</a></li>

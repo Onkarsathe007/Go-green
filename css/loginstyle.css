@@ -1,0 +1,83 @@
+/* General styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e6f9e6; /* Light green background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Form container */
+.form-container {
+    background-color: #ccffcc; /* Light green card background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 128, 0, 0.2); /* Green shadow */
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+}
+
+/* Heading */
+.form-container h1 {
+    color: #008000; /* Dark green */
+    margin-bottom: 15px;
+}
+
+/* Input fields */
+.form-container input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #008000; /* Green border */
+    border-radius: 5px;
+    outline: none;
+}
+
+/* Button */
+.form-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #008000; /* Dark green */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.form-container button:hover {
+    background-color: #006400; /* Darker green */
+}
+
+/* Error message */
+.error {
+    color: red;
+    font-size: 14px;
+}
+
+/* Signup & Login link */
+.form-container p {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.form-container a {
+    color: #006400;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.form-container a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .form-container {
+        width: 95%;
+        padding: 15px;
+    }
+}

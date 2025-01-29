@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <title>Germinate an Agriculture Category Flat Bootstrap Responsive Website Template | Gallery :</title>
@@ -24,14 +25,72 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="//fonts.googleapis.com/css?family=Bree+Serif&amp;subset=latin-ext" rel="stylesheet">
 <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
 </head>
-	
+<?php
+// Now you can access $_SESSION
+session_start();
+?>
+<?php
+
+include('conn.php'); // Include your database connection
+// Check if the form is submitted
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // Retrieve the session data (cart)
+    $cart = $_SESSION['cart'];
+
+    // Retrieve form data
+    $username = $_SESSION['user_id'];
+    $address = $_POST['address'];
+    $payment_method = $_POST['payment_method'];
+    $order_status = 'pending'; // Default order status
+    $order_date = date('Y-m-d'); // Current date
+
+    // Initialize variables to store the items and total price
+    $items = [];
+    $total_quantity = 0;
+    $total_price = 0;
+
+    // Loop through the cart to process items, quantities, and prices
+    foreach ($cart as $item) {
+        $items[] = $item['name'];  // Add item name to the items array
+        $total_quantity += $item['quantity'];  // Add quantity to total
+        $total_price += $item['price'] * $item['quantity'];  // Add price to total
+    }
+
+    // Convert the items array to a string
+    $items_str = implode(', ', $items);
+
+    // Prepare the SQL query to insert the order
+// Prepare the SQL query to insert the order
+$sql = "INSERT INTO orders (username, address, payment_method, order_status, order_date, items, quantity, price) 
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+
+// Prepare the statement
+if ($stmt = $conn->prepare($sql)) {
+    // Bind the parameters
+    $stmt->bind_param("ssssssid", $username, $address, $payment_method, $order_status, $order_date, $items_str, $total_quantity, $total_price);
+
+    // Execute the query
+    if ($stmt->execute()) {
+        echo "Order placed successfully!";
+    } else {
+        echo "Error: " . $stmt->error;
+    }
+
+    // Close the statement
+    $stmt->close();
+	} else {
+    echo "Error: " . $conn->error;
+	}
+}
+?>
+
 <body>
 <!-- banner -->
 	<div class="banner1">
 		<div class="container">
 			<div class="w3_agileits_banner_main_grid">
 				<div class="w3_agile_logo">
-					<h1><a href="index.html"><span>G</span>oGreen<i>Grow healthy products</i></a></h1>
+					<h1><a href="index.php"><span>G</span>oGreen<i>Grow healthy products</i></a></h1>
 				</div>
 				<div class="agile_social_icons_banner">
 					<ul class="agileits_social_list">
@@ -51,12 +110,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="shy-menu-panel">
 							<nav class="menu menu--horatio link-effect-8" id="link-effect-8">
 								<ul class="w3layouts_menu__list">
-									<li><a href="index.html">Home</a></li>
+									<li><a href="index.php">Home</a></li>
 									<li><a href="about.html">About Us</a></li> 
 									<li><a href="services.html">Services</a></li>
 									<li class="active"><a href="gallery.html">Gallery</a></li> 
 									<li><a href="contact.html">Contact Us</a></li>
-                                    <li><a href="buy.html">Buy</a></li>
+                                    <li><a href="login.php">Login</a></li>
+                                    <li><a href="buy.php">Buy</a></li>
+									<li style="list-style: none;"><a href="logout.php" style="color: inherit; text-decoration: none;" onmouseover="this.style.color='red'" onmouseout="this.style.color='inherit'">Log out</a></li>
 								</ul>
 							</nav>
 						</div>
@@ -73,7 +134,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					Germinate
+					
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
 				</div>
 				<section>
@@ -98,7 +159,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="container">
 			<div class="w3layouts_breadcrumbs_left">
 				<ul>
-					<li><i class="fa fa-home" aria-hidden="true"></i><a href="index.html">Home</a><span>/</span></li>
+					<li><i class="fa fa-home" aria-hidden="true"></i><a href="index.php">Home</a><span>/</span></li>
 					<li><i class="fa fa-picture-o" aria-hidden="true"></i>Payment</li>
 				</ul>
 			</div>
@@ -113,99 +174,81 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="welcome">
 		<div class="container">
 			<h3 class="agileits_w3layouts_head">do  <span>Payment</span></h3>
+		 	<!-- # <h3><?php echo '<pre>' . print_r($_SESSION['cart'], true) . '</pre>'; ?></h3>  -->
+			Germinate
+
+
 			<div class="w3_agile_image">
 				<img src="images/1.png" alt=" " class="img-responsive" />
 			</div>
 			
 			
-<div class="container">
-	<div class="row-fluid">
-      <form class="form-horizontal">
-        <fieldset>
-          <div id="legend">
-            <legend class="">Payment</legend>
-          </div>
+			<div class="container">
+    <div class="row-fluid">
+        <form class="form-horizontal" method="POST" action="">
+            <fieldset>
+                <div id="legend">
+                    <legend class="">Payment</legend>
+                </div>
      
-          <!-- Name -->
-          <div class="control-group">
-            <label class="control-label"  for="username">Card Holder's Name</label>
-            <div class="controls">
-              <input type="text" id="username" name="username" placeholder="" class="input-xlarge">
-            </div>
-          </div>
+                <!-- Name -->
+                <div class="control-group">
+                    <label class="control-label" for="username">Card Holder's Name</label>
+                    <div class="controls">
+                        <input type="text" id="username" name="username" placeholder="" class="input-xlarge" required>
+                    </div>
+                </div>
      
-          <!-- Card Number -->
-          <div class="control-group">
-            <label class="control-label" for="email">Card Number</label>
-            <div class="controls">
-              <input type="text" id="email" name="email" placeholder="" class="input-xlarge">
-            </div>
-          </div>
+                <!-- Address -->
+                <div class="control-group">
+                    <label class="control-label" for="address">Shipping Address</label>
+                    <div class="controls">
+                        <textarea id="address" name="address" placeholder="" class="input-xlarge" required></textarea>
+                    </div>
+                </div>
      
-          <!-- Expiry-->
-          <div class="control-group">
-            <label class="control-label" for="password">Card Expiry Date</label>
-            <div class="controls">
-              <select class="span3" name="expiry_month" id="expiry_month">
-                <option></option>
-                <option value="01">Jan (01)</option>
-                <option value="02">Feb (02)</option>
-                <option value="03">Mar (03)</option>
-                <option value="04">Apr (04)</option>
-                <option value="05">May (05)</option>
-                <option value="06">June (06)</option>
-                <option value="07">July (07)</option>
-                <option value="08">Aug (08)</option>
-                <option value="09">Sep (09)</option>
-                <option value="10">Oct (10)</option>1
-                <option value="11">Nov (11)</option>
-                <option value="12">Dec (12)</option>
-              </select>
-              <select class="span2" name="expiry_year">
-                <option value="13">2013</option>
-                <option value="14">2014</option>
-                <option value="15">2015</option>
-                <option value="16">2016</option>
-                <option value="17">2017</option>
-                <option value="18">2018</option>
-                <option value="19">2019</option>
-                <option value="20">2020</option>
-                <option value="21">2021</option>
-                <option value="22">2022</option>
-                <option value="23">2023</option>
-              </select>
-            </div>
-          </div>
+                <!-- Payment Method -->
+                <div class="control-group">
+                    <label class="control-label" for="payment_method">Payment Method</label>
+                    <div class="controls">
+                        <select id="payment_method" name="payment_method" class="input-xlarge" required>
+                            <option value="cash_on_delivery" selected>Cash on Delivery</option>
+                            <option value="credit_card">Credit Card</option>
+                            <option value="debit_card">Debit Card</option>
+                            <option value="paypal">PayPal</option>
+                        </select>
+                    </div>
+                </div>
      
-          <!-- CVV -->
-          <div class="control-group">
-            <label class="control-label"  for="password_confirm">Card CVV</label>
-            <div class="controls">
-              <input type="password" id="password_confirm" name="password_confirm" placeholder="" class="span2">
-            </div>
-          </div>
+                <!-- Order Status -->
+                <div class="control-group">
+                    <label class="control-label" for="order_status">Order Status</label>
+                    <div class="controls">
+                        <input type="text" id="order_status" name="order_status" value="pending" readonly class="input-xlarge">
+                    </div>
+                </div>
      
-          <!-- Save card -->
-          <div class="control-group">
-            <div class="controls">
-              <label class="checkbox" for="save_card">
-                <input type="checkbox" id="save_card" value="option1">
-                Save card on file?
-              </label>
-            </div>
-          </div>
+                <!-- Order Date -->
+                <div class="control-group">
+                    <label class="control-label" for="order_date">Order Date</label>
+                    <div class="controls">
+                        <input type="text" id="order_date" name="order_date" value="<?php echo date('Y-m-d'); ?>" readonly class="input-xlarge">
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="control-group">
+                    <div class="controls">
+						<br>
+                        <button class="btn btn-success" type="submit">Place Order</button>
+                    </div>
+                </div>
      
-          <!-- Submit -->
-          <div class="control-group">
-            <div class="controls">
-              <button class="btn btn-success">Pay Now</button>
-            </div>
-          </div>
-     
-        </fieldset>
-      </form>
+            </fieldset>
+        </form>
     </div>
 </div>
+
 
 
 
@@ -229,7 +272,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="w3agile_footer_grids">
 				<div class="col-md-3 agileinfo_footer_grid">
 					<div class="agileits_w3layouts_footer_logo">
-						<h2><a href="index.html"><span>G</span>oGreen<i>Grow healthy products</i></a></h2>
+						<h2><a href="index.php"><span>G</span>oGreen<i>Grow healthy products</i></a></h2>
 					</div>
 				</div>
 				<div class="col-md-4 agileinfo_footer_grid">
@@ -246,7 +289,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="col-md-2 agileinfo_footer_grid agileinfo_footer_grid1">
 					<h3>Navigation</h3>
 					<ul class="w3layouts_footer_nav">
-						<li><a href="index.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Home</a></li>
+						<li><a href="index.php"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Home</a></li>
 						<li><a href="icons.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Web Icons</a></li>
 						<li><a href="typography.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Typography</a></li>
 						<li><a href="contact.html"><i class="fa fa-long-arrow-right" aria-hidden="true"></i>Contact Us</a></li>
