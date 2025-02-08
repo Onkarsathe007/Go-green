@@ -118,6 +118,7 @@ if ($stmt = $conn->prepare($sql)) {
                                     <li><a href="login.php">Login</a></li>
                                     <li><a href="buy.php">Buy</a></li>
 									<li style="list-style: none;"><a href="logout.php" style="color: inherit; text-decoration: none;" onmouseover="this.style.color='red'" onmouseout="this.style.color='inherit'">Log out</a></li>
+									<li style="list-style: none;"><a href="admin-login.php" style="color: inherit; text-decoration: none;" onmouseover="this.style.color='blue'" onmouseout="this.style.color='inherit'">ADMIN</a></li>
 								</ul>
 							</nav>
 						</div>
