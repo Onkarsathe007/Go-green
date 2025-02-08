@@ -458,7 +458,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
            <img src="assets/img/img/artificial-ferti1.jpg" alt="" height="200" width="250" />
            <a href="#0" class="cd-add-to-cart js-cd-add-to-cart" data-price="200">Add To Cart</a>
         
-        </div>Normal. This is.
+        </div>Normal. This is.OK. 
       </div>  Hey. 
     </div></td>
     <td>
@@ -698,11 +698,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="clearfix"> </div>
 			</div>
 		</div>
-		<div class="w3_agileits_footer_copy">
-			<div class="container">
-				<p>© 2020 GoGreen. All rights reserved | Design by <a href="">XXXXXXXXXX.</a></p>
-			</div>
-		</div>
+ | 
 	</div>
 <!-- //footer -->
 <!-- menu -->

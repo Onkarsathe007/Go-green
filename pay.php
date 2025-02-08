@@ -314,11 +314,7 @@ if ($stmt = $conn->prepare($sql)) {
 				<div class="clearfix"> </div>
 			</div>
 		</div>
-		<div class="w3_agileits_footer_copy">
-			<div class="container">
-				<p>© 2020 GoGreen. All rights reserved | Design by <a href="">XXXXXXXXXX.</a></p>
-			</div>
-		</div>
+
 	</div>
 <!-- //footer -->
 <!-- menu -->
