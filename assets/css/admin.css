@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #f0f0f0;
+        }
+        h2 {
+            color: #008000;
+            margin-bottom: 20px;
+            font-size: 24px;
+            position: relative;
+            z-index: 1;
+        }
+        .login-container {
+            position: relative;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 350px;
+            overflow: hidden;
+        }
+        .login-container::before {
+            content: "";
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(90deg, #00ff00, #008000);
+            z-index: -1;
+            animation: moveBorder 3s linear infinite;
+        }
+        .login-container::after {
+            content: "";
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            right: 2px;
+            bottom: 2px;
+            background: white;
+            z-index: 0;
+            border-radius: 8px;
+        }
+        @keyframes moveBorder {
+            0% {
+                transform: translateX(-100%);
+            }
+            100% {
+                transform: translateX(100%);
+            }
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #008000;
+            border-radius: 5px;
+            font-size: 16px;
+            position: relative;
+            z-index: 1;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #008000;
+            border: none;
+            color: white;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+            position: relative;
+            z-index: 1;
+        }
+        button:hover {
+            background: #006400;
+        }
+        p {
+            color: red;
+            margin-top: 10px;
+            position: relative;
+            z-index: 1;
+        }
