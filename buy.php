@@ -444,6 +444,81 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
     </tr>
 </table>
+
+<h2>Artificial Fertilizers</h2>
+ 
+ <table >
+  <tr>
+  <td>
+  <div class="curso__item">
+      <div class="curso__card">
+       
+        <div class="info__card">
+          <h4>Uria </h4>
+           <img src="assets/img/img/artificial-ferti1.jpg" alt="" height="200" width="250" />
+           <a href="#0" class="cd-add-to-cart js-cd-add-to-cart" data-price="200">Add To Cart</a>
+        
+        </div>
+      </div>  
+    </div></td>
+    <td>
+     <div class="curso__item">
+      <div class="curso__card">
+       
+        <div class="info__card">
+          <h4>calcium ammonium nitrate (CAN)</h4>
+           <img src="assets/img/img/artificial-ferti5.jpeg" alt="" height="200" width="250" />
+           <a href="#0" class="cd-add-to-cart js-cd-add-to-cart" data-price="50">Add To Cart</a>
+        
+        </div>
+      </div>
+    </div>
+    </td>
+
+    <td>
+     <div class="curso__item">
+      <div class="curso__card">
+       
+        <div class="info__card">
+          <h4>superphosphate</h4>
+           <img src="assets/img/img/artificial-ferti3.jpg" alt="" height="200" width="250" />
+           <a href="#0" class="cd-add-to-cart js-cd-add-to-cart" data-price="50">Add To Cart</a>
+        
+        </div>
+      </div>
+    </div>
+    </td>
+
+    <td>
+     <div class="curso__item">
+      <div class="curso__card">
+       
+        <div class="info__card">
+          <h4> ammonium nitrate</h4>
+           <img src="assets/img/img/artificial-ferti4.jpg" alt="" height="200" width="250" />
+           <a href="#0" class="cd-add-to-cart js-cd-add-to-cart" data-price="60">Add To Cart</a>
+        
+        </div>
+      </div>
+    </div>
+    </td>
+
+      <td>
+     <div class="curso__item">
+      <div class="curso__card">
+       
+        <div class="info__card">
+          <h4>Phosphate Fertilisers</h4>
+           <img src="assets/img/img/artificial-ferti5.jpeg" alt="" height="200" width="250" />
+           <a href="#0" class="cd-add-to-cart js-cd-add-to-cart" data-price="20">Add To Cart</a>
+        
+        </div>
+      </div>
+    </div>
+    </td>
+
+    </tr>
+</table>
   </p>
   </div>
 </main> 

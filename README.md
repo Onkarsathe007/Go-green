@@ -12,7 +12,7 @@ Experience seamless backend connectivity with our web application designed to he
 - Efficient plant management
 - Cost-effective solutions
 - Easy manipulation of growing conditions
-
+2
 ### Gallery
 
 Take a look at our application in action:
