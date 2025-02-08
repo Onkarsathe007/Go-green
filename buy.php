@@ -458,8 +458,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
            <img src="assets/img/img/artificial-ferti1.jpg" alt="" height="200" width="250" />
            <a href="#0" class="cd-add-to-cart js-cd-add-to-cart" data-price="200">Add To Cart</a>
         
-        </div>
-      </div>  
+        </div>Normal. This is.
+      </div>  Hey. 
     </div></td>
     <td>
      <div class="curso__item">
@@ -661,7 +661,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 				<div class="col-md-4 agileinfo_footer_grid">
 					<h3>Contact Info</h3>
-					<h4>Call Us <span>+91 XXXXXXXXXX</span></h4>
+					<h4>Call Us <span>+91 9834704589</span></h4>
 					<p> XXXXXX <span>XXXXX</span></p>
 					<ul class="agileits_social_list">
 						<li><a href="#" class="w3_agile_facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
