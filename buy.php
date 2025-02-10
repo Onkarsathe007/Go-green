@@ -295,7 +295,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
        <h2>Herbal Plants</h2>
  
-  <table >
+   <table >
     <tr>
     <td>
     <div class="curso__item">
@@ -366,10 +366,160 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       </td>
 
       </tr>
-       </table>
-  
+  </table>
 
-    </p>
+  <!-- Herbal Plants  -->
+   
+  <h2>Natural Fertilizers</h2>
+ 
+ <table >
+  <tr>
+  <td>
+  <div class="curso__item">
+      <div class="curso__card">
+       
+        <div class="info__card">
+          <h4>Compost</h4>
+           <img src="assets/img/img/natural-ferti1.jpg" alt="" height="200" width="250" />
+           <a href="#0" class="cd-add-to-cart js-cd-add-to-cart" data-price="200">Add To Cart</a>
+        
+        </div>
+      </div>  
+    </div></td>
+    <td>
+     <div class="curso__item">
+      <div class="curso__card">
+       
+        <div class="info__card">
+          <h4>Brown Compost</h4>
+           <img src="assets/img/img/natural-ferti2.jpg" alt="" height="200" width="250" />
+           <a href="#0" class="cd-add-to-cart js-cd-add-to-cart" data-price="50">Add To Cart</a>
+        
+        </div>
+      </div>
+    </div>
+    </td>
+
+    <td>
+     <div class="curso__item">
+      <div class="curso__card">
+       
+        <div class="info__card">
+          <h4>vermicompost</h4>
+           <img src="assets/img/img/natural-ferti3.jpg" alt="" height="200" width="250" />
+           <a href="#0" class="cd-add-to-cart js-cd-add-to-cart" data-price="50">Add To Cart</a>
+        
+        </div>
+      </div>
+    </div>
+    </td>
+
+    <td>
+     <div class="curso__item">
+      <div class="curso__card">
+       
+        <div class="info__card">
+          <h4>Black Compost</h4>
+           <img src="assets/img/img/natural-ferti4.jpg" alt="" height="200" width="250" />
+           <a href="#0" class="cd-add-to-cart js-cd-add-to-cart" data-price="60">Add To Cart</a>
+        
+        </div>
+      </div>
+    </div>
+    </td>
+
+      <td>
+     <div class="curso__item">
+      <div class="curso__card">
+       
+        <div class="info__card">
+          <h4>Compost x3</h4>
+           <img src="assets/img/img/natural-ferti5.jpg" alt="" height="200" width="250" />
+           <a href="#0" class="cd-add-to-cart js-cd-add-to-cart" data-price="20">Add To Cart</a>
+        
+        </div>
+      </div>
+    </div>
+    </td>
+
+    </tr>
+</table>
+
+<h2>Artificial Fertilizers</h2>
+ 
+ <table >
+  <tr>
+  <td>
+  <div class="curso__item">
+      <div class="curso__card">
+       
+        <div class="info__card">
+          <h4>Uria </h4>
+           <img src="assets/img/img/artificial-ferti1.jpg" alt="" height="200" width="250" />
+           <a href="#0" class="cd-add-to-cart js-cd-add-to-cart" data-price="200">Add To Cart</a>
+        
+        </div>Normal. This is.OK. 
+      </div>  Hey. 
+    </div></td>
+    <td>
+     <div class="curso__item">
+      <div class="curso__card">
+       
+        <div class="info__card">
+          <h4>calcium ammonium nitrate (CAN)</h4>
+           <img src="assets/img/img/artificial-ferti5.jpeg" alt="" height="200" width="250" />
+           <a href="#0" class="cd-add-to-cart js-cd-add-to-cart" data-price="50">Add To Cart</a>
+        
+        </div>
+      </div>
+    </div>
+    </td>
+
+    <td>
+     <div class="curso__item">
+      <div class="curso__card">
+       
+        <div class="info__card">
+          <h4>superphosphate</h4>
+           <img src="assets/img/img/artificial-ferti3.jpg" alt="" height="200" width="250" />
+           <a href="#0" class="cd-add-to-cart js-cd-add-to-cart" data-price="50">Add To Cart</a>
+        
+        </div>
+      </div>
+    </div>
+    </td>
+
+    <td>
+     <div class="curso__item">
+      <div class="curso__card">
+       
+        <div class="info__card">
+          <h4> ammonium nitrate</h4>
+           <img src="assets/img/img/artificial-ferti4.jpg" alt="" height="200" width="250" />
+           <a href="#0" class="cd-add-to-cart js-cd-add-to-cart" data-price="60">Add To Cart</a>
+        
+        </div>
+      </div>
+    </div>
+    </td>
+
+      <td>
+     <div class="curso__item">
+      <div class="curso__card">
+       
+        <div class="info__card">
+          <h4>Phosphate Fertilisers</h4>
+           <img src="assets/img/img/artificial-ferti5.jpeg" alt="" height="200" width="250" />
+           <a href="#0" class="cd-add-to-cart js-cd-add-to-cart" data-price="20">Add To Cart</a>
+        
+        </div>
+      </div>
+    </div>
+    </td>
+
+    </tr>
+</table>
+  </p>
   </div>
 </main> 
 
@@ -511,7 +661,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 				<div class="col-md-4 agileinfo_footer_grid">
 					<h3>Contact Info</h3>
-					<h4>Call Us <span>+91 XXXXXXXXXX</span></h4>
+					<h4>Call Us <span>+91 9834704589</span></h4>
 					<p> XXXXXX <span>XXXXX</span></p>
 					<ul class="agileits_social_list">
 						<li><a href="#" class="w3_agile_facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
@@ -548,11 +698,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="clearfix"> </div>
 			</div>
 		</div>
-		<div class="w3_agileits_footer_copy">
-			<div class="container">
-				<p>© 2020 GoGreen. All rights reserved | Design by <a href="">XXXXXXXXXX.</a></p>
-			</div>
-		</div>
+ | 
 	</div>
 <!-- //footer -->
 <!-- menu -->

@@ -118,6 +118,7 @@ if ($stmt = $conn->prepare($sql)) {
                                     <li><a href="login.php">Login</a></li>
                                     <li><a href="buy.php">Buy</a></li>
 									<li style="list-style: none;"><a href="logout.php" style="color: inherit; text-decoration: none;" onmouseover="this.style.color='red'" onmouseout="this.style.color='inherit'">Log out</a></li>
+									<li style="list-style: none;"><a href="admin-login.php" style="color: inherit; text-decoration: none;" onmouseover="this.style.color='blue'" onmouseout="this.style.color='inherit'">ADMIN</a></li>
 								</ul>
 							</nav>
 						</div>
@@ -277,7 +278,7 @@ if ($stmt = $conn->prepare($sql)) {
 				</div>
 				<div class="col-md-4 agileinfo_footer_grid">
 					<h3>Contact Info</h3>
-					<h4>Call Us <span>+91 XXXXXXXXXX</span></h4>
+					<h4>Call Us <span>+91 9834704589</span></h4>
 					<p> XXXXX <span>XXXXX</span></p>
 					<ul class="agileits_social_list">
 						<li><a href="#" class="w3_agile_facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
@@ -314,11 +315,7 @@ if ($stmt = $conn->prepare($sql)) {
 				<div class="clearfix"> </div>
 			</div>
 		</div>
-		<div class="w3_agileits_footer_copy">
-			<div class="container">
-				<p>© 2020 GoGreen. All rights reserved | Design by <a href="">XXXXXXXXXX.</a></p>
-			</div>
-		</div>
+
 	</div>
 <!-- //footer -->
 <!-- menu -->
